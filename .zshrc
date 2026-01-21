@@ -1,0 +1,61 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Which plugins would you like to load?
+plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+source $ZSH/oh-my-zsh.sh
+
+# Aliases
+alias c='clear'
+alias q="exit"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias grep='grep --color=auto'
+alias bc='bc -l'
+alias mkdir='mkdir -pv'
+alias v=nvim
+alias vi=nvim
+alias l='eza --color always'
+alias ls='eza --color always -la'
+alias ll='ls'
+alias lt='l -RTl'
+alias lp='eza -1'
+alias conda=micromamba
+alias vpn-uam='gp-saml-gui -S --allow-insecure-crypto vpn.uam.es'
+alias winapps-start='docker compose --file ~/.config/winapps/compose.yaml start'
+alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Set up utilities
+source <(fzf --zsh)
+eval "$(zoxide init --cmd cd zsh)"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE="$HOME/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="$HOME/.local/share/mamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

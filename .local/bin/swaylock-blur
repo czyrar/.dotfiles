@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# Base part
+options=$(cat <<'EOF'
+--show-failed-attempts
+--daemonize
+--show-keyboard-layout
+--indicator-caps-lock
+--scaling=fill
+--font=IosevkaCustomNerdFont
+--font-size=24
+--indicator-radius=100
+--indicator-thickness=20
+--inside-color=c0caf588
+--inside-clear-color=c0caf588
+--inside-caps-lock-color=e0af6888
+--inside-ver-color=9ece6a88
+--inside-wrong-color=f7768e88
+--key-hl-color=bb9af7ff
+--layout-bg-color=1a1b26ff
+--layout-border-color=1a1b26ff
+--layout-text-color=c0caf5ff
+--ring-color=7dcfffff
+--ring-clear-color=7dcfffff
+--ring-ver-color=9ece6aff
+--ring-wrong-color=f7768eff
+--separator-color=bb9af7ff
+--text-color=1a1b26ff
+--text-clear-color=1a1b26ff
+--text-caps-lock-color=1a1b26ff
+--text-ver-color=1a1b26ff
+--text-wrong-color=1a1b26ff
+EOF
+)
+
+# Background
+cache_dict="$HOME/.cache/swaylock"
+[ -d "$cache_dict" ] || mkdir -p "$cache_dict"
+while read -r line; do
+  output=$(printf "%s" "$line" | cut -d' ' -f1)
+  wallpaper=$(printf "%s" "$line" | cut -d' ' -f2)
+  lockpaper="$cache_dict/$(basename $wallpaper)"
+  [ -f "$lockpaper" ] || magick "$wallpaper" -filter Gaussian -resize 2.5% -define filter:sigma=2.5 -resize 4000% "$lockpaper"
+  options="${options} --image ${output}${lockpaper}"
+done <<-EOF
+$(swww query | cut -d' ' -f2,9)
+EOF
+
+swaylock $options

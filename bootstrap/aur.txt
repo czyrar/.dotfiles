@@ -1,0 +1,13 @@
+ani-cli
+elecwhat-bin
+gp-saml-gui-git
+gpu-screen-recorder
+juliaup
+librewolf-bin
+limine-mkinitcpio-hook
+limine-snapper-sync
+mangal-bin
+vesktop
+witr
+wlogout
+yay
