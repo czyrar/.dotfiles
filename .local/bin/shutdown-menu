@@ -1,0 +1,24 @@
+#!/bin/sh
+
+option=$(printf '%s' 'Suspend,Logout,Restart,Shutdown' | tr ',' '\n' |
+  bemenu -c -l 4 -w -i -H 10 -p 'Select action:' -W 0.4 --fn IosevkaCustomNerdFont 11)
+
+case $option in
+  Suspend)
+    action='systemctl suspend'
+    ;;
+  Logout)
+    action='loginctl terminate-user $USER'
+    ;;
+  Restart)
+    action='systemctl restart'
+    ;;
+  Shutdown)
+    action='systemctl poweroff'
+    ;;
+  *)
+    exit 0
+    ;;
+esac
+
+: $($action)

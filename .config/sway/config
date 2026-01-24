@@ -1,23 +1,3 @@
-# ===================== OUTPUT ====================================
-# Monitors
-# enter `swaymsg -t get_outputs` to get your monitor details.
-output DP-3 pos 1920 0 res 1920x1080@165.003Hz
-output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
-# Workspaces
-workspace 1 output DP-3
-workspace 3 output DP-3
-workspace 5 output DP-3
-workspace 7 output DP-3
-workspace 9 output DP-3
-workspace 2 output HDMI-A-1
-workspace 4 output HDMI-A-1
-workspace 6 output HDMI-A-1
-workspace 8 output HDMI-A-1
-workspace 10 output HDMI-A-1
-# Disable V-sync for games
-output DP-3 allow_tearing yes
-output DP-3 max_render_time off
-# =================================================================
 
 # ===================== EXEC ======================================
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -37,51 +17,32 @@ set $mod Mod4
 set $term            foot
 set $file_explorer   nemo
 set $menu            pgrep wlogout && killall wlogout || wlogout --buttons-per-row 2 --row-spacing 5 --column-spacing 5
-set $launcher        pgrep rofi && killall rofi || rofi -modes "drun,calc,window" -show drun
+set $launcher        pgrep rofi && killall bemenu-run || bemenu-run
 set $admin           pgrep btop && killall btop || foot --app-id btop btop
-set $fast_screenshot grim -g "$(slurp)" - | wl-copy
+set $fast_screenshot grim -g "$(slurp)" - | wl-copy && notify-send -t 1500 -u low -- "Screenshot" "Copied to clipboard"
 set $screenshot      grim -g "$(slurp)" - | swappy -f -
 set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify-send -t 1500 -u low -- "GPU Screen Recorder" "Replay saved"
-# =================================================================
-
-# ===================== INPUT =====================================
-input type:keyboard {
-  xkb_layout "us,es"
-  xkb_variant "altgr-intl,winkeys"
-  xkb_options "grp:alt_shift_toggle"
-  repeat_rate 35
-  repeat_delay 200
-}
-
-input type:pointer {
-  accel_profile "flat"
-  pointer_accel 0
-}
-
-input type:touchpad {
-  natural_scroll enabled
-}
-
-input type:tablet_tool {
-  # map_to_output DP-1
-  map_to_output DP-3
-}
 # =================================================================
 
 # ===================== LOOKS =====================================
 bar {
   swaybar_command waybar
 
+  #   status_command i3blocks
   # position top
-  # font "Maple Mono NF CN 8"
+  # font "IosevkaCustomNerdFont 11"
+  # separator_symbol " | "
+  # workspace_min_width 40 px
+  # tray_padding 4 px
   #
   # colors {
   #   background #1A1B26
-  #   statusline #1A1B26
-  #   focused_workspace #BB9AF7 #1A1B26 #7DCFFF
-  #   active_workspace #1A1B26 #1A1B26 #C0CAF5
+  #   statusline #C0CAF5
+  #   separator #414868
+  #   focused_workspace #1A1B26 #1A1B26 #BB9AF7
+  #   active_workspace #1A1B26 #1A1B26 #BB9AF7
   #   inactive_workspace #1A1B26 #1A1B26 #C0CAF5
-  #   urgent_workspace #F7768E #F7768E88 #1A1B26
+  #   urgent_workspace #F7768E #1A1B26 #F7768E
   # }
 }
 gaps inner 1px
@@ -107,7 +68,7 @@ bindsym --no-repeat $mod+d exec $launcher
 bindsym --no-repeat $mod+m exec $menu
 bindsym --no-repeat $mod+Shift+s exec $fast_screenshot
 bindsym --no-repeat Print exec $screenshot
-bindsym --no-repeat Control+Shift+Escape exec $admin
+bindsym --no-repeat $mod+Shift+Escape exec $admin
 # Sway
 bindsym --no-repeat $mod+f fullscreen
 bindsym --no-repeat $mod+q kill
@@ -133,19 +94,20 @@ bindsym --no-repeat $mod+Shift+Down move down
 bindsym --no-repeat $mod+Shift+Left move left
 # Resize
 mode "resize" {
-  bindsym $mod+l resize grow width 10px
-  bindsym $mod+k resize shrink height 10px
-  bindsym $mod+j resize grow height 10px
-  bindsym $mod+h resize shrink width 10px
-  bindsym $mod+Right resize grow width 10px
-  bindsym $mod+Up resize shrink height 10px
-  bindsym $mod+Down resize grow height 10px
-  bindsym $mod+Left resize shrink width 10px
+  bindsym l resize grow width 192 px or 5 ppt
+  bindsym j resize shrink height 192 px or 5 ppt
+  bindsym k resize grow height 192 px or 5 ppt
+  bindsym h resize shrink width 192 px or 5 ppt
+  bindsym Right move right 192 px or 5 ppt
+  bindsym Up move up 192 px
+  bindsym Down move down 192 px
+  bindsym Left move left 192 px
   # Return to default mode
   bindsym Return mode "default"
   bindsym Escape mode "default"
+  bindsym space mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+period mode "resize"
 #Workspaces
 bindsym --no-repeat $mod+1 workspace number 1
 bindsym --no-repeat $mod+2 workspace number 2
@@ -202,3 +164,4 @@ for_window [title="^VMD.*$"] floating enable;
 # =================================================================
 
 include /etc/sway/config.d/*
+include $(cat /etc/hostname)/*
