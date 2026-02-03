@@ -26,24 +26,24 @@ set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify
 
 # ===================== LOOKS =====================================
 bar {
-  swaybar_command waybar
+  swaybar_command swaybar
 
-  #   status_command i3blocks
-  # position top
-  # font "IosevkaCustomNerdFont 11"
-  # separator_symbol " | "
-  # workspace_min_width 40 px
-  # tray_padding 4 px
-  #
-  # colors {
-  #   background #1A1B26
-  #   statusline #C0CAF5
-  #   separator #414868
-  #   focused_workspace #1A1B26 #1A1B26 #BB9AF7
-  #   active_workspace #1A1B26 #1A1B26 #BB9AF7
-  #   inactive_workspace #1A1B26 #1A1B26 #C0CAF5
-  #   urgent_workspace #F7768E #1A1B26 #F7768E
-  # }
+    status_command i3blocks
+  position top
+  font "IosevkaCustomNerdFont 11"
+  separator_symbol " | "
+  workspace_min_width 40 px
+  tray_padding 4 px
+
+  colors {
+    background #1A1B26
+    statusline #C0CAF5
+    separator #414868
+    focused_workspace #1A1B26 #1A1B26 #BB9AF7
+    active_workspace #1A1B26 #1A1B26 #BB9AF7
+    inactive_workspace #1A1B26 #1A1B26 #C0CAF5
+    urgent_workspace #F7768E #1A1B26 #F7768E
+  }
 }
 gaps inner 1px
 gaps outer 0px

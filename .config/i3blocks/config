@@ -3,16 +3,27 @@ command=swaybar-window
 interval=persist
 maxlen=50
 label=❯ 
+color=#C0CAF5
 
 [cpu]
 command=swaybar-cpu
 interval=5
 label= 
+color=#C0CAF5
 
 [ram]
 command=swaybar-ram
 interval=5
 label= 
+color=#C0CAF5
+
+[net]
+command=swaybar-net
+interval=5
+labeldown= 
+labelup= 
+color=#C0CAF5
+device=wlan0
 
 [battery]
 command=swaybar-battery
@@ -23,4 +34,13 @@ label40=
 label20=  
 label00=  
 labelnobat= 
+color80=#C0CAF5
+color60=#C0CAF5
+color40=#C0CAF5
+color20=#C0CAF5
+colornobat=#C0CAF5
+
+[time]
+command=date '+%H:%M'
+interval=5
 
