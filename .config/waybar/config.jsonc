@@ -1,0 +1,206 @@
+{
+    "height": 27,
+    "spacing": 5,
+
+    "modules-left": [
+        "sway/workspaces",
+        "custom/sep",
+        "sway/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/system",
+        "custom/sep",
+        "network",
+        "custom/sep",
+        "group/multimedia",
+        "custom/sep",
+        "group/power",
+        "custom/sep",
+        "sway/language",
+        "custom/sep",
+        "tray"
+    ],
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "custom/space",
+            "memory"
+        ]
+    },
+    "group/multimedia": {
+        "orientation": "horizontal",
+        "modules": [
+            "wireplumber",
+            "custom/space",
+            "bluetooth"
+        ]
+    },
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery",
+            "custom/space",
+            "power-profiles-daemon"
+        ]
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
+    },
+    "custom/space": {
+        "format": " ",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "enable-bar-scroll": true,
+        "disable-scroll-wraparound": true,
+        "active-only": false,
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "1": ["DP-3"],
+            "3": ["DP-3"],
+            "5": ["DP-3"],
+            "7": ["DP-3"],
+            "9": ["DP-3"],
+            "2": ["HDMI-A-1"],
+            "4": ["HDMI-A-1"],
+            "6": ["HDMI-A-1"],
+            "8": ["HDMI-A-1"],
+            "10": ["HDMI-A-1"]
+       },
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "min-length": 0,
+        "all-outputs": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "interval": 60,
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#C0CAF5'><b><u>{}</u></b></span>",
+                "days":       "<span color='#C0CAF5'>{}</span>",
+                "weekdays":   "<span color='#C0CAF5'><b>{}</b></span>",
+                "today":      "<span color='#F7768E'><b>{}</b></span>"
+            }
+        },
+        "actions":  {
+            "on-click": "mode",
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false,
+        "interval": 5,
+        "on-click": "pgrep btop && killall btop || foot --app-id btop btop",
+        "on-click-right": "pgrep btop && killall btop || foot --app-id btop btop"
+    },
+    "memory": {
+        "format": "  {percentage}%",
+        "tooltip": false,
+        "interval": 5,
+        "on-click": "pgrep btop && killall btop || foot --app-id btop btop",
+        "on-click-right": "pgrep btop && killall btop || foot --app-id btop btop"
+    },
+    "network" : {
+        "interval": 5,
+        "format-wifi": "{icon} {bandwidthDownBits}",
+        "format-ethernet": "  {bandwidthDownBits}",
+        "format-disconnected": "󰤮 ",
+        "format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "tooltip-format-wifi": "Connected to {essid}",
+        "tooltip-format-ethernet": "Connected via {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "pgrep impala && killall impala || foot --app-id impala impala",
+        "on-click-right": "pgrep impala && killall impala || foot --app-id impala impala"
+    },
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "phone": " ",
+            "portable": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pgrep wiremix && killall wiremix || foot --app-id wiremix wiremix",
+        "on-click-right": "pgrep wiremix && killall wiremix || foot --app-id wiremix wiremix",
+        "on-click-middle": "wpctl set-mute @DEFAULT_SINK@ toggle"
+    },
+    "bluetooth": {
+        "format": "󰂯 ",
+        "format-disabled": "󰂲 ",
+        "format-off": "󰂲 ",
+        "format-on": "󰂯 ",
+        "format-connected": "󰂱 ",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "pgrep bluetui && killall bluetui || foot --app-id bluetui bluetui",
+        "on-click-right": "pgrep bluetui && killall bluetui || foot --app-id bluetui bluetui",
+        "on-click-middle": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}",
+        "format-icons": {
+            "default": "󰾅 ",
+            "performance": "󰓅 ",
+            "balanced": "󰾅 ",
+            "power-saver": "󰾆 "
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "sway/language": {
+        "format-en": "en",
+        "format-es": "es"
+    }
+}

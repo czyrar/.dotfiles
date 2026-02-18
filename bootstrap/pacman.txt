@@ -52,6 +52,7 @@ man-db
 man-pages
 memtest86+-efi
 mpv
+mupdf
 nemo
 neovim
 noto-fonts
@@ -64,6 +65,7 @@ openbsd-netcat
 openconnect
 openvpn
 pandoc-cli
+papirus-icon-theme
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -83,12 +85,14 @@ snap-pac
 snapper
 speedtest-cli
 spotify-launcher
+stow
 sudo
 swappy
 sway
 swayidle
 swaylock
 swww
+sysstat
 systemd-resolvconf
 texinfo
 texlive-basic

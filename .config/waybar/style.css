@@ -1,0 +1,107 @@
+@define-color bg     #1A1B26;
+@define-color fg     #C0CAF5;
+@define-color red    #F7768E;
+@define-color green  #9ECE6A;
+@define-color yellow #E0AF68;
+@define-color blue   #7AA2F7;
+@define-color purple #BB9AF7;
+@define-color cyan   #7DCFFF;
+@define-color gray   #414868;
+
+* {
+  font-family: "IosevkaCustomNerdFont", "noto-fonts";
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: @bg;
+  color: @fg;
+  border-radius: 0px;
+}
+
+#workspaces button {
+    padding: 0 3px;
+    color: @fg;
+    background: transparent;
+    border-bottom: 3px solid @bg;
+    border-radius: 0px;
+}
+#workspaces button.focused {
+    color: @cyan;
+    border-bottom: 3px solid @purple;
+    border-radius: 0px;
+}
+#workspaces button.empty {
+    color: @gray;
+}
+#workspaces button.empty.focused {
+    color: @cyan;
+    border-bottom: 3px solid @purple;
+    border-radius: 0px;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @fg;
+}
+
+#window,
+#tray {
+  padding: 0 8px;
+  color: @fg;
+}
+
+#custom-sep {
+    color: @gray;
+}
+
+#clock {
+  color: @cyan;
+  border-bottom: 3px solid @cyan;
+}
+
+#cpu,
+#memory {
+  color: @yellow;
+}
+
+#system {
+  border-bottom: 3px solid @yellow;
+}
+
+#network {
+  color: @purple;
+  border-bottom: 3px solid @purple;
+}
+
+#wireplumber,
+#bluetooth {
+  color: @blue;
+}
+
+#multimedia {
+  border-bottom: 3px solid @blue;
+}
+
+#battery,
+#power-profiles-daemon {
+  color: @green;
+}
+
+#power {
+  border-bottom: 3px solid @green;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#language {
+  color: @red;
+  border-bottom: 3px solid @red;
+}

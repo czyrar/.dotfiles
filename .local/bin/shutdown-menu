@@ -1,24 +1,13 @@
 #!/bin/sh
 
-option=$(printf '%s' 'Suspend,Logout,Restart,Shutdown' | tr ',' '\n' |
-  bemenu -c -l 4 -w -i -H 10 -p 'Select action:' -W 0.4 --fn IosevkaCustomNerdFont 11)
-
-case $option in
-  Suspend)
-    action='systemctl suspend'
-    ;;
-  Logout)
-    action='loginctl terminate-user $USER'
-    ;;
-  Restart)
-    action='systemctl restart'
-    ;;
-  Shutdown)
-    action='systemctl poweroff'
-    ;;
-  *)
-    exit 0
-    ;;
+case $(printf 'zzz\nkill\nreboot\nshutdown' |
+  bemenu-themed -c -l 4 -W 0.2 -p 'Select action:') in
+  zzz) systemctl suspend -i ;;
+  kill) ps -u "$USER" -o pid,comm,%cpu,%mem |
+    bemenu-themed -c -l 10 -W 0.4 -p 'Kill:' |
+    awk '{print $1}' |
+    xargs -r kill ;;
+  reboot) systemctl reboot ;;
+  shutdown) systemctl poweroff ;;
+  *) exit 1 ;;
 esac
-
-: $($action)
