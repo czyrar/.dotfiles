@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bemenu "$@" -i -H 27 --hp 13 --fn "IosevkaCustomNerdFont 11" --tb "#1A1B26" --tf "#BB9AF7" --fb "#1A1B26" --ff "#E0AF68" --nb "#1A1B26" --nf "#C0CAF5" --ab "#1A1B26" --af "#C0CAF5" --hb "#414868" --hf "#7DCFFF"
+bemenu "$@" -H 27 --hp 13 --fn "IosevkaCustomNerdFont 11" --tb "#1A1B26" --tf "#BB9AF7" --fb "#1A1B26" --ff "#E0AF68" --nb "#1A1B26" --nf "#C0CAF5" --ab "#1A1B26" --af "#C0CAF5" --hb "#414868" --hf "#7DCFFF"

@@ -18,11 +18,12 @@ set $mod Mod4
 set $term            foot
 set $file_explorer   nemo
 set $menu            pgrep bemenu && killall bemenu || shutdown-menu
-set $launcher        pgrep bemenu && killall bemenu || j4-dmenu-desktop --term foot --dmenu='bemenu-themed -p "Run:"'
+set $launcher        pgrep bemenu && killall bemenu || j4-dmenu-desktop --term foot --dmenu='bemenu-themed -i -p "Run:"'
 set $admin           pgrep btop && killall btop || foot --app-id btop btop
 set $fast_screenshot grim -g "$(slurp)" - | wl-copy && notify-send -t 1500 -u low -- "Screenshot" "Copied to clipboard"
 set $screenshot      grim -g "$(slurp)" - | swappy -f -
 set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify-send -t 1500 -u low -- "GPU Screen Recorder" "Replay saved"
+set $notes           notes
 # =================================================================
 
 # ===================== LOOKS =====================================
@@ -67,6 +68,7 @@ bindsym --no-repeat $mod+Return exec $term
 bindsym --no-repeat $mod+e exec $file_explorer
 bindsym --no-repeat $mod+d exec $launcher
 bindsym --no-repeat $mod+m exec $menu
+bindsym --no-repeat $mod+n exec $notes
 bindsym --no-repeat $mod+Shift+s exec $fast_screenshot
 bindsym --no-repeat Print exec $screenshot
 bindsym --no-repeat $mod+Shift+Escape exec $admin
