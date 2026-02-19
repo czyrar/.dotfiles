@@ -45,7 +45,6 @@ alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
 
 # Set up utilities
 source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!

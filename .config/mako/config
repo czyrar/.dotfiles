@@ -1,10 +1,11 @@
-font=Noto 10;
+font=Noto 8;
 background-color=#1A1B26FF
 text-color=#C0CAF5FF
-width=400
-height=300
+width=300
+height=150
 border-size=1
 border-color=#BB9AF7FF
+default-timeout=5000
 
 [mode=do-not-disturb]
 invisible=1
