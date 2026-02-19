@@ -30,7 +30,7 @@ set $notes           notes
 bar {
   swaybar_command waybar
 
-  #   status_command i3blocks
+  # status_command i3blocks
   # position top
   # font "IosevkaCustomNerdFont 11"
   # separator_symbol " | "
