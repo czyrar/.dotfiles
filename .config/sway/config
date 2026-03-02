@@ -165,6 +165,7 @@ for_window [app_id="^org.keepassxc.KeePassXC$"] floating enable; resize set 800p
 for_window [title="^VMD.*$"] floating enable;
 # Plots -> floating
 for_window [class="^(Matplotlib|gnuplot).*$"] floating enable;
+for_window [app_id="^gnuplot.*$"] floating enable;
 # =================================================================
 
 include /etc/sway/config.d/*
