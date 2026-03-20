@@ -13,8 +13,6 @@ btrfs-progs
 calibre
 dash
 dialog
-docker
-docker-compose
 efibootmgr
 eza
 fastfetch
@@ -28,6 +26,7 @@ fzf
 gcc-fortran
 gimp
 git
+gnuplot
 hyfetch
 imagemagick
 img2pdf
@@ -55,6 +54,7 @@ mpv
 mupdf
 nemo
 neovim
+nicotine+
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -134,4 +134,5 @@ xorg-xauth
 xorg-xlsclients
 xorg-xwayland
 xournalpp
+yt-dlp
 zsh

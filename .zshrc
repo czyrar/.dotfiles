@@ -37,8 +37,8 @@ alias lt='l -RTl'
 alias lp='eza -1'
 alias conda=micromamba
 alias vpn-uam='gp-saml-gui -S --allow-insecure-crypto vpn.uam.es'
-alias winapps-start='docker compose --file ~/.config/winapps/compose.yaml start'
-alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
+alias winapps-start='podman-compose --file ~/.config/winapps/compose.yaml start'
+alias winapps-stop='podman-compose --file ~/.config/winapps/compose.yaml stop'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

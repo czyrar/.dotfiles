@@ -166,7 +166,9 @@ for_window [app_id="^org.keepassxc.KeePassXC$"] floating enable; resize set 800p
 # VMD -> floating
 for_window [title="^VMD.*$"] floating enable;
 # Plots -> floating
-for_window [class="^(Matplotlib|gnuplot).*$"] floating enable;
+for_window [app_id="^(Matplotlib|gnuplot).*$"] floating enable;
+# Notes -> floating in middle
+for_window [app_id="^note$"] floating enable; resize set 1400px 800px; move position center
 # =================================================================
 
 include /etc/sway/config.d/*
