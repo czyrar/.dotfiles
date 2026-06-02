@@ -6,6 +6,8 @@ height=150
 border-size=1
 border-color=#BB9AF7FF
 default-timeout=5000
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
 [mode=do-not-disturb]
 invisible=1
+on-notify=exec true

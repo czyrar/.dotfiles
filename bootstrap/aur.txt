@@ -1,12 +1,17 @@
 ani-cli
+alhp-keyring
+alhp-mirrorlist
 elecwhat-bin
 gp-saml-gui-git
 gpu-screen-recorder
 juliaup
 limine-mkinitcpio-hook
 limine-snapper-sync
+losslesscut
 mangal-bin
 vesktop
 waterfox-bin
 witr
+xpadneo-dkms
 yay
+zotero

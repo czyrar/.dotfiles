@@ -3,7 +3,7 @@ include $(cat /etc/hostname)/*
 # ===================== EXEC ======================================
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
-exec swww-daemon
+exec awww-daemon
 # Idle
 exec swayidle -w \
   timeout 300 "swaylock-blur" \
@@ -16,7 +16,7 @@ exec swayidle -w \
 set $mod Mod4
 # Apps
 set $term            foot
-set $file_explorer   nemo
+set $file_explorer   thunar
 set $menu            pgrep bemenu && killall bemenu || shutdown-menu
 set $launcher        pgrep bemenu && killall bemenu || j4-dmenu-desktop --term foot --dmenu='bemenu-themed -i -p "Run:"'
 set $admin           pgrep btop && killall btop || foot --app-id btop btop
@@ -153,12 +153,13 @@ bindsym --no-repeat $mod+F10 exec $save_replay
 # If fullscreen then no idle
 for_window [all] inhibit_idle fullscreen
 # Games -> floating, fullscreen, no idle if focused, tearing
-for_window [class="steam_app.*"] inhibit_idle focus; floating enable; fullscreen enable; allow_tearing yes
+for_window [class="(steam_app|Minecraft).*"] inhibit_idle focus; floating enable; fullscreen enable; allow_tearing yes
 # Waybar -> floating, upper right position (except btop centered)
 for_window [app_id="^(impala|wiremix|bluetui)$"] floating enable; resize set 800px 700px; move position 1122px 1px
 for_window [app_id="^btop$"] floating enable; resize set 1600px 1000px; move position center
 # Videos (VLC is buggy) -> floating, 720p default
-for_window [app_id="^mpv$"] floating enable; resize set 1280px 720px
+for_window [app_id="^mpv$"] floating enable; inhibit_idle focus; resize set 1280px 720px
+for_window [class="^vlc$"] floating enable; inhibit_idle focus; resize set 1280px 720px
 # Pickers, screen-sharing, ... -> floating, no idle
 for_window [app_id="^xdg-desktop-portal-(wlr|gtk)$"] inhibit_idle open; floating enable
 # KeePassXC -> floating, upper right position
@@ -170,6 +171,8 @@ for_window [app_id="^(Matplotlib|gnuplot|Gnuplot).*$"] floating enable;
 for_window [class="^(Matplotlib|gnuplot|Gnuplot).*$"] floating enable;
 # Notes -> floating in middle
 for_window [app_id="^note$"] floating enable; resize set 1400px 800px; move position center
+# Windows -> no fullscreen
+for_window [class="^(Microsoft).*$"] fullscreen disable;
 # =================================================================
 
 include /etc/sway/config.d/*
