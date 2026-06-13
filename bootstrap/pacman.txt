@@ -12,6 +12,7 @@ brightnessctl
 btop
 btrfs-progs
 calibre
+chromium
 dash
 dialog
 dkms
