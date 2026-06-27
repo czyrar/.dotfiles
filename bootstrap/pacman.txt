@@ -1,5 +1,6 @@
 7zip
 alsa-utils
+android-udev
 audacity
 base
 base-devel
@@ -10,7 +11,6 @@ blas-openblas
 bluetui
 brightnessctl
 btop
-btrfs-progs
 calibre
 chromium
 dash
@@ -45,7 +45,6 @@ keepassxc
 krita
 libadwaita
 libreoffice-fresh
-limine
 linux
 linux-firmware
 linux-headers
@@ -88,8 +87,6 @@ ripgrep
 rsync
 ruby
 rustup
-snap-pac
-snapper
 speedtest-cli
 spotify-launcher
 sound-theme-freedesktop
@@ -101,6 +98,7 @@ swayidle
 swaylock
 swww
 sysstat
+systemd-boot
 systemd-resolvconf
 texinfo
 texlive-basic
