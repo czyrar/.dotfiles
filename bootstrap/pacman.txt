@@ -1,5 +1,7 @@
 7zip
 alsa-utils
+android-udev
+audacity
 base
 base-devel
 bat
@@ -9,10 +11,14 @@ blas-openblas
 bluetui
 brightnessctl
 btop
-btrfs-progs
 calibre
+chromium
 dash
 dialog
+dkms
+docker
+docker-compose
+dust
 efibootmgr
 eza
 fastfetch
@@ -39,11 +45,11 @@ keepassxc
 krita
 libadwaita
 libreoffice-fresh
-limine
 linux
 linux-firmware
 linux-headers
 linux-zen
+linux-zen-headers
 luarocks
 ly
 mako
@@ -52,7 +58,6 @@ man-pages
 memtest86+-efi
 mpv
 mupdf
-nemo
 neovim
 nicotine+
 noto-fonts
@@ -61,6 +66,7 @@ noto-fonts-emoji
 npm
 nwg-look
 obsidian
+obs-studio
 openbsd-netcat
 openconnect
 openvpn
@@ -81,10 +87,9 @@ ripgrep
 rsync
 ruby
 rustup
-snap-pac
-snapper
 speedtest-cli
 spotify-launcher
+sound-theme-freedesktop
 stow
 sudo
 swappy
@@ -93,6 +98,7 @@ swayidle
 swaylock
 swww
 sysstat
+systemd-boot
 systemd-resolvconf
 texinfo
 texlive-basic
@@ -117,7 +123,9 @@ texlive-plaingeneric
 texlive-pstricks
 texlive-publishers
 texlive-xetex
+thunar
 tree-sitter-cli
+tumbler
 uv
 vim
 vlc
@@ -135,4 +143,5 @@ xorg-xlsclients
 xorg-xwayland
 xournalpp
 yt-dlp
+zbar
 zsh

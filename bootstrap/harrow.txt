@@ -20,6 +20,7 @@ lib32-v4l-utils
 lib32-vkd3d
 lutris
 mesa-utils
+prismlauncher
 steam
 vkd3d
 wine

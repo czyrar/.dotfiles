@@ -1,4 +1,4 @@
-output DP-3 pos 1920 0 res 1920x1080@165.003Hz
+output DP-3 pos 1920 0 res 1920x1080@165.003Hz color_profile icc /home/czyrar/.local/share/color/icc/aoc_24g2u.icc
 output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 workspace 1 output DP-3
 workspace 3 output DP-3

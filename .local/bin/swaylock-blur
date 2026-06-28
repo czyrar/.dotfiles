@@ -43,7 +43,7 @@ while read -r line; do
   [ -f "$lockpaper" ] || magick "$wallpaper" -filter Gaussian -resize 2.5% -define filter:sigma=2.5 -resize 4000% "$lockpaper"
   options="${options} --image ${output}${lockpaper}"
 done <<-EOF
-$(swww query | cut -d' ' -f2,9)
+$(awww query | cut -d' ' -f2,9)
 EOF
 
 swaylock $options
