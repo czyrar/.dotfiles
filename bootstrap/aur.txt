@@ -1,12 +1,13 @@
 ani-cli
 alhp-keyring
 alhp-mirrorlist
-elecwhat-bin
+durdraw
 gpu-screen-recorder
+helium-browser-bin
 juliaup
 losslesscut
 mangal-bin
 paru
-waterfox-bin
 xpadneo-dkms
+zapzap
 zotero
