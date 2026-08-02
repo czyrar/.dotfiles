@@ -6,7 +6,6 @@ gpu-screen-recorder
 helium-browser-bin
 juliaup
 losslesscut
-mangal-bin
 paru
 xpadneo-dkms
 zapzap
