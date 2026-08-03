@@ -118,6 +118,8 @@ swayidle
 swaylock
 sysstat
 systemd-resolvconf
+tesseract-data-eng
+tesseract-data-esp
 texinfo
 texlive-basic
 texlive-bibtexextra
