@@ -1,12 +1,12 @@
 ani-cli
 alhp-keyring
 alhp-mirrorlist
-durdraw
 gpu-screen-recorder
 helium-browser-bin
 juliaup
 losslesscut
 paru
+vesktop
 xpadneo-dkms
 zapzap
 zotero
