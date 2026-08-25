@@ -1,5 +1,7 @@
 intel-ucode
+gpu-screen-recorder
 lib32-nvidia-utils
-nvidia-open-dkms
+nvidia-open
+nvidia-utils
 tlp
 tlp-pd

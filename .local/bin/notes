@@ -4,14 +4,14 @@ folder=$HOME/Documents/notes/
 [ -d $folder ] || mkdir $folder
 
 newnote () { \
-  name="$(printf '' | bemenu-themed -c -W 0.4 -p 'Enter a name: ')"
+  name="$(printf '' | bemenu -c -W 0.4 -p 'Enter a name: ')"
   : "${name:=$(date +%F_%H-%M-%S)}"
   foot --app-id note nvim "$folder/$name.md"
 }
 
 selected () { \
   choice=$(
-    printf "New\n$(find $folder -name *.md -type f -printf '%T@ %P\n' | sort -nr | cut -d' ' -f2-)" | bemenu-themed -c -l 5 -i -W 0.4 -p "Choose note or create new: "
+    printf "New\n$(find $folder -name *.md -type f -printf '%T@ %P\n' | sort -nr | cut -d' ' -f2-)" | bemenu -c -l 5 -i -W 0.4 -p "Choose note or create new: "
   )
   case $choice in
     New) newnote ;;

@@ -1,7 +1,6 @@
 ani-cli
 alhp-keyring
 alhp-mirrorlist
-gpu-screen-recorder
 helium-browser-bin
 juliaup
 losslesscut

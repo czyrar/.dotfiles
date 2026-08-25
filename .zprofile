@@ -1,10 +1,14 @@
-# Looks
-export GDK_BACKEND=wayland,x11,*
-export QT_QPA_PLATFORM=wayland
+# Wayland
+export XDG_SESSION_TYPE=wayland
 export SDL_VIDEODRIVER=wayland,x11,windows
 export CLUTTER_BACKEND=wayland
-export GTK_THEME=Tokyonight-BL-LB-Dark-Storm
+export GDK_BACKEND=wayland,x11,*
+export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt6ct
+
+# Looks
+export GTK_THEME=Tokyonight-BL-LB-Dark-Storm
+export BEMENU_OPTS='-H 27 --hp 13 --fn "IosevkaCustomNerdFont 11" --tb "#1A1B26" --tf "#BB9AF7" --fb "#1A1B26" --ff "#E0AF68" --nb "#1A1B26" --nf "#C0CAF5" --ab "#1A1B26" --af "#C0CAF5" --hb "#414868" --hf "#7DCFFF"'
 
 # Man pages in neovim
 export MANPAGER='nvim +Man!'
@@ -22,3 +26,9 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 # SSH
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# NVIDIA
+if $(lspci | grep -q NVIDIA); then
+  export LIBVA_DRIVER_NAME=nvidia
+  export __GLX_VENDOR_LIBRARY_NAME=nvidia
+fi

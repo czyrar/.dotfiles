@@ -18,7 +18,7 @@ set $mod Mod4
 set $term            foot
 set $file_explorer   thunar
 set $menu            pgrep bemenu && killall bemenu || shutdown-menu
-set $launcher        pgrep bemenu && killall bemenu || j4-dmenu-desktop --term foot --dmenu='bemenu-themed -i -p "Run:"'
+set $launcher        pgrep bemenu && killall bemenu || j4-dmenu-desktop --term foot --dmenu='bemenu -i -p "Run:"'
 set $admin           pgrep btop && killall btop || foot --app-id btop btop
 set $fast_screenshot grim -g "$(slurp)" - | wl-copy && notify-send -t 1500 -u low -- "Screenshot" "Copied to clipboard"
 set $screenshot      grim -g "$(slurp)" - | swappy -f -
