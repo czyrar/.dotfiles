@@ -1,0 +1,13 @@
+font=Noto 8;
+background-color=#1A1B26FF
+text-color=#C0CAF5FF
+width=300
+height=150
+border-size=1
+border-color=#BB9AF7FF
+default-timeout=5000
+on-notify=exec mpv ~/.config/mako/message.oga
+
+[mode=do-not-disturb]
+invisible=1
+on-notify=exec true

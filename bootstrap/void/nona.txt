@@ -1,0 +1,6 @@
+mesa-dri
+mesa-vaapi
+mesa-vulkan-radeon
+tlp
+tlp-pd
+vulkan-loader

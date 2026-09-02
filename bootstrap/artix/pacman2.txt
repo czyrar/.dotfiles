@@ -1,0 +1,12 @@
+elogind
+waterfox-bin
+INIT
+INIT-system
+cronie-INIT
+elogind-INIT
+dhcpcd-INIT
+iwd-INIT
+ly-INIT
+pipewire-INIT
+wireguard-INIT
+wireplumber-INIT

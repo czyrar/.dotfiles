@@ -1,0 +1,43 @@
+output eDP-1 {
+  position 1920 0
+  resolution 1920x1080@143.999Hz
+  allow_tearing yes
+  max_render_time off
+  adaptive_sync on
+}
+workspace 2 output eDP-1
+workspace 4 output eDP-1
+workspace 6 output eDP-1
+workspace 8 output eDP-1
+workspace 10 output eDP-1
+
+output HDMI-A-1 {
+  position 0 0
+  resolution 1920x1080@60.000Hz
+  allow_tearing yes
+  max_render_time off
+}
+workspace 1 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 9 output HDMI-A-1
+
+input type:keyboard {
+  xkb_layout "us,es"
+  xkb_variant "altgr-intl,winkeys"
+  xkb_options "grp:shift_caps_toggle"
+  repeat_rate 35
+  repeat_delay 200
+}
+
+input type:pointer {
+  accel_profile "flat"
+  pointer_accel 0
+}
+
+input type:tablet_tool {
+  map_to_output HDMI-A-1
+}
+
+# exec "gpu-record"

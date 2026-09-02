@@ -1,0 +1,26 @@
+#!/bin/sh
+
+WINDOW=screen
+OUTPUT_RESOLUTION=1920x1080
+CONTAINER=mkv
+QUALITY=40000
+CODEC=auto
+AUDIO_CODEC=opus
+AUDIO_DEVICE=default_output|default_input
+SECONDARY_AUDIO_DEVICE=
+FRAMERATE=60
+REPLAYDURATION=60
+OUTPUTDIR=/home/czyrar/Videos/
+MAKEFOLDERS=no
+COLOR_RANGE=limited
+KEYINT=2
+RESTORE_PORTAL_SESSION=no
+ENCODER=gpu
+BITRATE_MODE=cbr
+
+gpu-screen-recorder -v no -w "${WINDOW}" -s "${OUTPUT_RESOLUTION}" \
+  -c "${CONTAINER}" -q "${QUALITY}" -k "${CODEC}" -ac "${AUDIO_CODEC}" \
+  -a "${AUDIO_DEVICE}" -a "${SECONDARY_AUDIO_DEVICE}" -f "${FRAMERATE}" \
+  -r "${REPLAYDURATION}" -o "${OUTPUTDIR}" -df "${MAKEFOLDERS}" -cr "${COLOR_RANGE}" \
+  -keyint "${KEYINT}" -restore-portal-session "${RESTORE_PORTAL_SESSION}" \
+  -encoder "${ENCODER}" -bm "${BITRATE_MODE}"

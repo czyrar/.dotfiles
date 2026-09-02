@@ -1,0 +1,8 @@
+amd-ucode
+fprintd
+lib32-mesa
+lib32-vulkan-radeon
+mesa
+tlp
+tlp-pd
+vulkan-radeon

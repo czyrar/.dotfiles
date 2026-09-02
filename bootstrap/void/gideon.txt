@@ -1,0 +1,7 @@
+intel-ucode
+gpu-screen-recorder
+linux-firmware-nvidia
+nvidia
+nvidia-libs-32bit
+tlp
+tlp-pd

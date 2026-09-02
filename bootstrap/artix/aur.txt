@@ -1,0 +1,9 @@
+ani-cli
+dashbinsh
+elecwhat-bin
+juliaup
+losslesscut
+micromamba-bin
+xpadneo-dkms
+yay
+zotero

@@ -1,0 +1,41 @@
+output DP-3 {
+  position 1920 0
+  resolution 1920x1080@165.003Hz
+  allow_tearing yes
+  max_render_time off
+  adaptive_sync on
+}
+workspace 1 output DP-3
+workspace 3 output DP-3
+workspace 5 output DP-3
+workspace 7 output DP-3
+workspace 9 output DP-3
+
+output HDMI-A-1 {
+  position 0 0
+  resolution 1920x1080@74.973Hz
+}
+workspace 2 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 6 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 10 output HDMI-A-1
+
+input type:keyboard {
+  xkb_layout "us,es"
+  xkb_variant "altgr-intl,winkeys"
+  xkb_options "grp:shift_caps_toggle"
+  repeat_rate 35
+  repeat_delay 200
+}
+
+input type:pointer {
+  accel_profile "flat"
+  pointer_accel 0
+}
+
+input type:tablet_tool {
+  map_to_output DP-3
+}
+
+exec "gpu-record"

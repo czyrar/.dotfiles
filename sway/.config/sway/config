@@ -1,0 +1,174 @@
+include $(cat /etc/hostname)/*
+
+# ===================== EXEC ======================================
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec mako
+exec awww-daemon
+# Idle
+exec swayidle -w \
+  timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+  before-sleep "swaylock-blur"
+# =================================================================
+
+# ===================== VARIABLES =================================
+# Super key
+set $mod Mod4
+# Apps
+set $term            foot
+set $file_explorer   pcmanfm
+set $menu            pkill dmenu || shutdown-menu
+set $launcher        pkill dmenu || j4-dmenu-desktop --no-generic --i3-ipc --term foot --term-mode kitty --dmenu='dmenu -i -p "Run:"'
+set $screenshot      grim -g "$(slurp)" - | swappy -f -
+set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify-send -t 1500 -u low -- "GPU Screen Recorder" "Replay saved"
+set $notes           notes
+# =================================================================
+
+# ===================== LOOKS =====================================
+bar {
+  swaybar_command waybar
+
+  # status_command i3blocks
+  # position top
+  # font "IosevkaCustomNerdFont 11"
+  # separator_symbol " | "
+  # workspace_min_width 40 px
+  # tray_padding 4 px
+  #
+  # colors {
+  #   background #1A1B26
+  #   statusline #C0CAF5
+  #   separator #414868
+  #   focused_workspace #1A1B26 #1A1B26 #BB9AF7
+  #   active_workspace #1A1B26 #1A1B26 #BB9AF7
+  #   inactive_workspace #1A1B26 #1A1B26 #C0CAF5
+  #   urgent_workspace #F7768E #1A1B26 #F7768E
+  # }
+}
+gaps inner 1px
+gaps outer 0px
+default_border pixel 1px
+default_floating_border pixel 1px
+default_orientation auto
+smart_borders on
+smart_gaps on
+#                          brd.     bg.    text    ind.  c.brd.
+client.focused          #BB9AF7 #1A1B26 #C0CAF5 #BB9AF7 #BB9AF7
+client.focused_inactive #7DCFFF #1A1B26 #C0CAF5 #7DCFFF #7DCFFF
+client.unfocused        #7DCFFF #1A1B26 #C0CAF5 #7DCFFF #7DCFFF
+client.urgent           #F7768E #1A1B26 #C0CAF5 #F7768E #F7768E
+client.placeholder      #7DCFFF #1A1B26 #C0CAF5 #7DCFFF #7DCFFF
+# =================================================================
+
+# ===================== KEYBINDS ==================================
+# Apps
+bindsym --no-repeat $mod+Return exec $term
+bindsym --no-repeat $mod+e exec $file_explorer
+bindsym --no-repeat $mod+d exec $launcher
+bindsym --no-repeat $mod+m exec $menu
+bindsym --no-repeat $mod+n exec $notes
+bindsym --no-repeat $mod+Shift+s exec $screenshot
+bindsym --no-repeat Print exec $screenshot
+# Sway
+bindsym --no-repeat $mod+f fullscreen
+bindsym --no-repeat $mod+q kill
+bindsym --no-repeat $mod+Shift+r reload
+bindsym --no-repeat $mod+Shift+space floating toggle
+floating_modifier $mod normal
+# Movement
+bindsym --no-repeat $mod+l focus right
+bindsym --no-repeat $mod+k focus up
+bindsym --no-repeat $mod+j focus down
+bindsym --no-repeat $mod+h focus left
+bindsym --no-repeat $mod+Right focus right
+bindsym --no-repeat $mod+Up focus up
+bindsym --no-repeat $mod+Down focus down
+bindsym --no-repeat $mod+Left focus left
+bindsym --no-repeat $mod+Shift+l move right
+bindsym --no-repeat $mod+Shift+k move up
+bindsym --no-repeat $mod+Shift+j move down
+bindsym --no-repeat $mod+Shift+h move left
+bindsym --no-repeat $mod+Shift+Right move right
+bindsym --no-repeat $mod+Shift+Up move up
+bindsym --no-repeat $mod+Shift+Down move down
+bindsym --no-repeat $mod+Shift+Left move left
+# Resize
+mode "resize" {
+  bindsym l resize grow width 192 px or 5 ppt
+  bindsym j resize shrink height 192 px or 5 ppt
+  bindsym k resize grow height 192 px or 5 ppt
+  bindsym h resize shrink width 192 px or 5 ppt
+  bindsym Right move right 192 px or 5 ppt
+  bindsym Up move up 192 px
+  bindsym Down move down 192 px
+  bindsym Left move left 192 px
+  # Return to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym space mode "default"
+}
+bindsym $mod+period mode "resize"
+#Workspaces
+bindsym --no-repeat $mod+1 workspace number 1
+bindsym --no-repeat $mod+2 workspace number 2
+bindsym --no-repeat $mod+3 workspace number 3
+bindsym --no-repeat $mod+4 workspace number 4
+bindsym --no-repeat $mod+5 workspace number 5
+bindsym --no-repeat $mod+6 workspace number 6
+bindsym --no-repeat $mod+7 workspace number 7
+bindsym --no-repeat $mod+8 workspace number 8
+bindsym --no-repeat $mod+9 workspace number 9
+bindsym --no-repeat $mod+0 workspace number 10
+bindsym --no-repeat $mod+Shift+1 move container to workspace number 1
+bindsym --no-repeat $mod+Shift+2 move container to workspace number 2
+bindsym --no-repeat $mod+Shift+3 move container to workspace number 3
+bindsym --no-repeat $mod+Shift+4 move container to workspace number 4
+bindsym --no-repeat $mod+Shift+5 move container to workspace number 5
+bindsym --no-repeat $mod+Shift+6 move container to workspace number 6
+bindsym --no-repeat $mod+Shift+7 move container to workspace number 7
+bindsym --no-repeat $mod+Shift+8 move container to workspace number 8
+bindsym --no-repeat $mod+Shift+9 move container to workspace number 9
+bindsym --no-repeat $mod+Shift+0 move container to workspace number 10
+bindsym --no-repeat $mod+a focus parent
+# Multimedia keys
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioStop exec playerctl stop
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86MonBrightnessUp exec brightnessctl s 10%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym --locked XF86Search exec $menu
+# Recording
+bindsym --no-repeat $mod+F10 exec $save_replay
+# =================================================================
+
+# ===================== WINDOW RULES ==============================
+# If fullscreen then no idle
+for_window [all] inhibit_idle fullscreen
+# Games -> floating, fullscreen, no idle if focused, tearing
+for_window [class="(steam_app|Minecraft).*"] inhibit_idle focus; floating enable; fullscreen enable; allow_tearing yes
+# Waybar -> floating, upper right position (except btop centered)
+for_window [app_id="^(impala|wiremix|bluetui)$"] floating enable; resize set 800px 700px; move position 1122px 1px
+for_window [app_id="^btop$"] floating enable; resize set 1600px 1000px; move position center
+# Videos (VLC is buggy) -> floating, 720p default
+for_window [app_id="^mpv$"] floating enable; inhibit_idle focus; resize set 1280px 720px
+for_window [class="^vlc$"] floating enable; inhibit_idle focus; resize set 1280px 720px
+# Pickers, screen-sharing, ... -> floating, no idle
+for_window [app_id="^xdg-desktop-portal-(wlr|gtk)$"] inhibit_idle open; floating enable
+# KeePassXC -> floating, upper right position
+for_window [app_id="^org.keepassxc.KeePassXC$"] floating enable; resize set 800px 700px; move position 1122px 1px
+# VMD -> floating
+for_window [title="^VMD.*$"] floating enable;
+# Plots -> floating
+for_window [app_id="^(Matplotlib|gnuplot|Gnuplot).*$"] floating enable;
+for_window [class="^(Matplotlib|gnuplot|Gnuplot).*$"] floating enable;
+# Notes -> floating in middle
+for_window [app_id="^note$"] floating enable; resize set 1400px 800px; move position center
+# Windows -> no fullscreen
+for_window [class="^(Microsoft).*$"] fullscreen disable;
+# =================================================================
+
+include /etc/sway/config.d/*

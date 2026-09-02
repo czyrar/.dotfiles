@@ -1,0 +1,3 @@
+[screencast]
+chooser_cmd=/home/czyrar/.local/bin/dmenu -H 27 --hp 13 --fn "IosevkaCustomNerdFont 11" -i -c -W 0.6 -p "Select window: " -l 20
+chooser_type=dmenu

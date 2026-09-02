@@ -1,0 +1,23 @@
+#!/bin/sh
+
+folder=$HOME/Documents/notes/
+[ -d $folder ] || mkdir $folder
+
+newnote () { \
+  name="$(printf '' | dmenu -c -W 0.4 -p 'Enter a name: ')"
+  : "${name:=$(date +%F_%H-%M-%S)}"
+  exec foot --app-id note nvim "$folder/$name.md"
+}
+
+selected () { \
+  choice=$(
+    printf "New\n$(find $folder -name *.md -type f -printf '%T@ %P\n' | sort -nr | cut -d' ' -f2-)" | dmenu -c -l 5 -i -W 0.4 -p "Choose note or create new: "
+  )
+  case $choice in
+    New) newnote ;;
+    *.md) foot --app-id note nvim "$folder/$choice" ;;
+    *) exit ;;
+  esac
+}
+
+selected

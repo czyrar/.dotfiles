@@ -1,0 +1,5 @@
+gpu-screen-recorder
+mesa-dri
+mesa-vaapi
+mesa-vulkan-radeon
+vulkan-loader
