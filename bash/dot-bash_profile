@@ -8,8 +8,6 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Looks
 export GTK_THEME=Tokyonight-BL-LB-Dark-Storm
-
-# Man pages in neovim
 export MANPAGER='nvim +Man!'
 
 # Local paths
@@ -31,3 +29,5 @@ if $(lspci | grep -q NVIDIA); then
   export LIBVA_DRIVER_NAME=nvidia
   export __GLX_VENDOR_LIBRARY_NAME=nvidia
 fi
+
+[[ -r ~/.bashrc ]] && . ~/.bashrc

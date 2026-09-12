@@ -38,4 +38,4 @@ input type:tablet_tool {
   map_to_output DP-3
 }
 
-exec "gpu-record"
+exec gpu-record

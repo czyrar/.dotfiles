@@ -1,0 +1,50 @@
+[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
+
+# Aliases
+alias c='clear'
+alias q="exit"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias grep='grep --color=auto'
+alias bc='bc -l'
+alias mkdir='mkdir -pv'
+alias v=nvim
+alias vi=nvim
+alias l='eza --color always'
+alias ls='eza --color always -la'
+alias ll='ls'
+alias lt='l -RTl'
+alias lp='eza -1'
+alias conda=micromamba
+alias vpn-uam='gp-saml-gui -S --allow-insecure-crypto vpn.uam.es'
+alias winapps-start='docker compose --file ~/.config/winapps/compose.yaml start'
+alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
+
+# Use bash-completion, if available, and avoid double-sourcing
+[[ $PS1 &&
+  ! ${BASH_COMPLETION_VERSINFO:-} &&
+  -f /usr/share/bash-completion/bash_completion ]] &&
+    . /usr/share/bash-completion/bash_completion
+eval "$(fzf --bash)"
+
+# Set PS1
+PS1='\[$([ "$USER" = "root" ] && printf "\e[91m" || printf "\e[32m")\]\u@\h'
+PS1="$PS1"'\[\e[0m\]:\]'
+PS1="$PS1"'\[\e[94m\]\w'
+PS1="$PS1"'\[\e[93m`git rev-parse --git-dir &> /dev/null && printf " (%s%s)" $(git branch --show-current) $(git diff --quiet || printf "!")`\]'
+export PS1="$PS1"'\e[0m\$ '
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/usr/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/czyrar/.local/share/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

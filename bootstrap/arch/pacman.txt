@@ -4,6 +4,7 @@ audacity
 awww
 base
 base-devel
+bash-completion
 bat
 bc
 bemenu-wayland
@@ -14,9 +15,9 @@ btop
 calibre
 cronie
 dash
-delta
 discord
 dhcpcd
+efibootmgr
 eza
 fastfetch
 fd
@@ -30,6 +31,7 @@ gamescope
 gcc-fortran
 gimp
 git
+git-delta
 gnuplot
 hyfetch
 ifplugd
@@ -45,6 +47,7 @@ keepassxc
 krita
 lib32-gamemode
 libreoffice-fresh
+limine
 linux
 linux-firmware
 linux-headers
@@ -81,7 +84,6 @@ polkit
 qbittorrent
 qt6ct
 rclone
-refind
 ripgrep
 rsync
 rustup
@@ -97,7 +99,7 @@ swayidle
 swaylock
 sysstat
 tesseract-data-eng
-tesseract-data-esp
+tesseract-data-spa
 texlive
 tree-sitter-cli
 uv
@@ -117,4 +119,3 @@ xorg-xwayland
 xournalpp
 yt-dlp
 zbar
-zsh

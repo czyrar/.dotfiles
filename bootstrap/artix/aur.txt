@@ -1,9 +1,10 @@
 ani-cli
+autofirma-bin
 dashbinsh
 elecwhat-bin
-juliaup
-losslesscut
+juliaup-bin
+losslesscut-bin
 micromamba-bin
 xpadneo-dkms
 yay
-zotero
+zotero-bin

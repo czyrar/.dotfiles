@@ -1,9 +1,10 @@
 7zip
 android-file-transfer-cli
 audacity
+autofirma
 awww
 base-devel
-base-system
+bash-completion
 bat
 bc
 bemenu
@@ -14,6 +15,7 @@ calibre
 cronie
 dash
 delta
+efibootmgr
 eza
 fastfetch
 fd
@@ -42,6 +44,7 @@ krita
 libgamemode-32bit
 libjack-pipewire
 libreoffice
+limine
 linux
 linux-firmware
 linux-headers
@@ -72,7 +75,6 @@ polkit
 qbittorrent
 qt6ct
 rclone
-refind
 rsync
 rustup
 speedtest-cli

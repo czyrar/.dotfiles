@@ -1,10 +1,13 @@
+alhp-keyring
+alhp-mirrorlist
 ani-cli
+autofirma-bin
 dashbinsh
 elecwhat-bin
-juliaup
-losslesscut
+juliaup-bin
+losslesscut-bin
 micromamba-bin
-waterfox
+waterfox-bin
 xpadneo-dkms
 yay
-zotero
+zotero-bin
