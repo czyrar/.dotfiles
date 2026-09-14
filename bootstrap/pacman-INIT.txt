@@ -1,5 +1,4 @@
 elogind
-waterfox-bin
 INIT
 INIT-system
 cronie-INIT

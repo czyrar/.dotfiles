@@ -5,6 +5,7 @@ elecwhat-bin
 juliaup-bin
 losslesscut-bin
 micromamba-bin
+waterfox-bin
 xpadneo-dkms
 yay
 zotero-bin

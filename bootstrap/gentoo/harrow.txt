@@ -1,3 +1,0 @@
-media-libs/amdgpu-pro-vulkan
-media-video/gpu-screen-recorder
-media-libs/mesa
