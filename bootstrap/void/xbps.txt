@@ -48,6 +48,7 @@ limine
 linux
 linux-firmware
 linux-headers
+lemurs
 luarocks
 lutris
 lxqt-policykit
@@ -109,5 +110,3 @@ xpadneo
 xtools
 yt-dlp
 zbar
-zsh
-zvm

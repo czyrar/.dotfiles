@@ -1,5 +1,6 @@
 7zip
 android-file-transfer
+aria2
 audacity
 awww
 base
@@ -57,8 +58,8 @@ lutris
 lxqt-policykit
 ly
 mako
-man-db
 man-pages
+mandoc
 memtest86+-efi
 mpv
 mupdf

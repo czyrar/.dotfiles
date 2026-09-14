@@ -3,5 +3,4 @@ gpu-screen-recorder
 lib32-mesa
 lib32-vulkan-radeon
 mesa
-power-profiles-daemon
 vulkan-radeon
