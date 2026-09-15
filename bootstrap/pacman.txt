@@ -46,13 +46,13 @@ jq
 kanshi
 keepassxc
 krita
+less
 lib32-gamemode
 libreoffice-fresh
 limine
 linux
 linux-firmware
 linux-headers
-luarocks
 luminancehdr
 lutris
 lxqt-policykit

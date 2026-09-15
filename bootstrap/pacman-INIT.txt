@@ -1,4 +1,6 @@
+artix-archlinux-support
 elogind
+gummiboot
 INIT
 INIT-system
 cronie-INIT

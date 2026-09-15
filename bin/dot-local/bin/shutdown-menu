@@ -1,14 +1,22 @@
 #!/bin/sh
 
+if command -v systemctl 2> /dev/null; then
+  REBOOT="systemctl reboot"
+  SHUTDOWN="systemctl poweroff"
+elif command -v openrc-shutdown 2> /dev/null; then
+  REBOOT="openrc-shutdown -r"
+  SHUTDOWN="openrc-shutdown -p"
+fi
+
 case $(printf 'zzz\nkill\nlogout\nreboot\nshutdown' |
   dmenu -i -c -l 5 -W 0.2 -p 'Select action:') in
-  zzz) systemctl suspend -i ;;
+  zzz) loginctl suspend -i ;;
   kill) ps -u "$USER" -o pid,comm,%cpu,%mem |
     dmenu -c -l 10 -W 0.4 -p 'Kill:' |
     awk '{print $1}' |
     xargs -r kill ;;
   logout) loginctl terminate-user $USER ;;
-  reboot) systemctl reboot ;;
-  shutdown) systemctl poweroff ;;
+  reboot) "$($REBOOT)" ;;
+  shutdown) "$($SHUTDOWN)" ;;
   *) exit 1 ;;
 esac
