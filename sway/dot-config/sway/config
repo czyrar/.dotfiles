@@ -1,4 +1,5 @@
-include $(cat /etc/hostname)/*
+# Needed for non-systemd
+exec --no-startup-id command -v systemctl > /dev/null || dbus-update-activation-environment --all
 
 # ===================== EXEC ======================================
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -10,14 +11,18 @@ exec swayidle -w \
   before-sleep "swaylock-blur"
 # =================================================================
 
+# ===================== INPUTS & OUTPUTS===========================
+include $(cat /etc/hostname)/*
+# =================================================================
+
 # ===================== VARIABLES =================================
 # Super key
 set $mod Mod4
 # Apps
 set $term            foot
 set $file_explorer   pcmanfm
-set $menu            pkill dmenu || shutdown-menu
-set $launcher        pkill dmenu || j4-dmenu-desktop --no-generic --i3-ipc --term foot --term-mode kitty --dmenu='dmenu -i -p "Run:"'
+set $menu            pkill bemenu || shutdown-menu
+set $launcher        pkill bemenu || j4-dmenu-desktop --no-generic --i3-ipc --term foot --term-mode kitty --dmenu='dmenu -i -p "Run:"'
 set $screenshot      grim -g "$(slurp)" - | swappy -f -
 set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify-send -t 1500 -u low -- "GPU Screen Recorder" "Replay saved"
 set $notes           notes
@@ -149,7 +154,7 @@ bindsym --no-repeat $mod+F10 exec $save_replay
 # If fullscreen then no idle
 for_window [all] inhibit_idle fullscreen
 # Games -> floating, fullscreen, no idle if focused, tearing
-for_window [class="(steam_app|Minecraft).*"] inhibit_idle focus; floating enable; fullscreen enable; allow_tearing yes
+for_window [class="(steam_app|Minecraft|gamescope).*"] inhibit_idle focus; floating enable; fullscreen enable; allow_tearing yes
 # Waybar -> floating, upper right position (except btop centered)
 for_window [app_id="^(impala|wiremix|bluetui)$"] floating enable; resize set 800px 700px; move position 1122px 1px
 for_window [app_id="^btop$"] floating enable; resize set 1600px 1000px; move position center

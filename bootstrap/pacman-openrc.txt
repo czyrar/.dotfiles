@@ -1,0 +1,14 @@
+artix-archlinux-support
+elogind
+openrc
+bluez-openrc
+cronie-openrc
+elogind-openrc
+dhcpcd-openrc
+iwd-openrc
+ly-openrc
+pipewire-openrc
+openssh-openrc
+syncthing-openrc
+wireguard-openrc
+wireplumber-openrc

@@ -7,7 +7,7 @@ options=$(cat <<'EOF'
 --show-keyboard-layout
 --indicator-caps-lock
 --scaling=fill
---font=IosevkaCustomNerdFont
+--font=IosevkaNerdFont
 --font-size=24
 --indicator-radius=100
 --indicator-thickness=20

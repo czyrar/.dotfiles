@@ -22,11 +22,6 @@ alias vpn-uam='gp-saml-gui -S --allow-insecure-crypto vpn.uam.es'
 alias winapps-start='docker compose --file ~/.config/winapps/compose.yaml start'
 alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
 
-# Use bash-completion, if available, and avoid double-sourcing
-[[ $PS1 &&
-  ! ${BASH_COMPLETION_VERSINFO:-} &&
-  -f /usr/share/bash-completion/bash_completion ]] &&
-    . /usr/share/bash-completion/bash_completion
 eval "$(fzf --bash)"
 
 # Set PS1
@@ -34,7 +29,7 @@ PS1='\[$([ "$USER" = "root" ] && printf "\e[91m" || printf "\e[32m")\]\u@\h'
 PS1="$PS1"'\[\e[0m\]:\]'
 PS1="$PS1"'\[\e[94m\]\w'
 PS1="$PS1"'\[\e[93m`git rev-parse --git-dir &> /dev/null && printf " (%s%s)" $(git branch --show-current) $(git diff --quiet || printf "!")`\]'
-export PS1="$PS1"'\e[0m\$ '
+export PS1="$PS1"'\[\n\e[0m\$ \]'
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!

@@ -4,8 +4,8 @@ if command -v systemctl 2> /dev/null; then
   REBOOT="systemctl reboot"
   SHUTDOWN="systemctl poweroff"
 elif command -v openrc-shutdown 2> /dev/null; then
-  REBOOT="openrc-shutdown -r"
-  SHUTDOWN="openrc-shutdown -p"
+  REBOOT="sudo openrc-shutdown -r now"
+  SHUTDOWN="sudo openrc-shutdown -p now"
 fi
 
 case $(printf 'zzz\nkill\nlogout\nreboot\nshutdown' |

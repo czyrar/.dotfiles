@@ -2,6 +2,9 @@ amd-ucode
 fprintd
 lib32-mesa
 lib32-vulkan-radeon
+linux-firmware-amd
+linux-firmware-amdgpu
+linux-firmware-atheros
 mesa
 tlp
 tlp-pd

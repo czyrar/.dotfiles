@@ -135,6 +135,7 @@
         "on-click-right": "pgrep btop && killall btop || foot --app-id btop btop"
     },
     "network" : {
+        "interface": "wlan0",
         "interval": 5,
         "format-wifi": "{icon} {bandwidthDownBits}",
         "format-ethernet": "  {bandwidthDownBits}",
