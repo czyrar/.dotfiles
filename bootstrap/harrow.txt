@@ -2,5 +2,8 @@ amd-ucode
 gpu-screen-recorder
 lib32-mesa
 lib32-vulkan-radeon
+linux-firmware-amdgpu
+linux-firmware-intel
+linux-firmware-realtek
 mesa
 vulkan-radeon

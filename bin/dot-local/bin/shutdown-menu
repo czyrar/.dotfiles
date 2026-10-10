@@ -3,9 +3,9 @@
 if command -v systemctl 2> /dev/null; then
   REBOOT="systemctl reboot"
   SHUTDOWN="systemctl poweroff"
-elif command -v openrc-shutdown 2> /dev/null; then
-  REBOOT="sudo openrc-shutdown -r now"
-  SHUTDOWN="sudo openrc-shutdown -p now"
+else
+  REBOOT="loginctl reboot"
+  SHUTDOWN="loginctl poweroff"
 fi
 
 case $(printf 'zzz\nkill\nlogout\nreboot\nshutdown' |
@@ -16,7 +16,7 @@ case $(printf 'zzz\nkill\nlogout\nreboot\nshutdown' |
     awk '{print $1}' |
     xargs -r kill ;;
   logout) loginctl terminate-user $USER ;;
-  reboot) "$($REBOOT)" ;;
-  shutdown) "$($SHUTDOWN)" ;;
+  reboot) $REBOOT ;;
+  shutdown) $SHUTDOWN ;;
   *) exit 1 ;;
 esac

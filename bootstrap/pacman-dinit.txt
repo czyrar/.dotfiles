@@ -1,0 +1,16 @@
+artix-archlinux-support
+elogind
+dinit
+bluez-dinit
+cronie-dinit
+elogind-dinit
+dhcpcd-dinit
+iwd-dinit
+ly-dinit
+pipewire-dinit
+pipewire-pulse-dinit
+openssh-dinit
+syncthing-dinit
+userspawn-dinit
+wireguard-dinit
+wireplumber-dinit

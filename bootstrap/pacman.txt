@@ -17,6 +17,7 @@ cronie
 dash
 discord
 dhcpcd
+djview
 efibootmgr
 eza
 fastfetch
@@ -47,6 +48,7 @@ krita
 less
 lib32-gamemode
 libreoffice-fresh
+librewolf
 linux
 linux-headers
 luminancehdr
@@ -69,6 +71,7 @@ nwg-look
 obsidian
 obs-studio
 openconnect
+opendoas
 openresolv
 openssh
 pandoc-cli
