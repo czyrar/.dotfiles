@@ -25,6 +25,6 @@ eval $(ssh-agent -s)
 
 # NVIDIA
 if $(lspci | grep -q NVIDIA); then
-  export LIBVA_DRIVER_NAME=nvidia
-  export __GLX_VENDOR_LIBRARY_NAME=nvidia
+  export SWAY_UNSUPPORTED_GPU=true
+  export GAMEMODERUNEXEC='env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only'
 fi

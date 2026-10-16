@@ -26,6 +26,7 @@ set $launcher        pkill bemenu || j4-dmenu-desktop --no-generic --i3-ipc --te
 set $screenshot      grim -g "$(slurp)" - | swappy -f -
 set $save_replay     killall -SIGUSR1 gpu-screen-recorder && sleep 0.5 && notify-send -t 1500 -u low -- "GPU Screen Recorder" "Replay saved"
 set $notes           notes
+set $browser         librewolf
 # =================================================================
 
 # ===================== LOOKS =====================================
@@ -71,6 +72,7 @@ bindsym --no-repeat $mod+e exec $file_explorer
 bindsym --no-repeat $mod+d exec $launcher
 bindsym --no-repeat $mod+m exec $menu
 bindsym --no-repeat $mod+n exec $notes
+bindsym --no-repeat $mod+b exec $browser
 bindsym --no-repeat $mod+Shift+s exec $screenshot
 bindsym --no-repeat Print exec $screenshot
 # Sway

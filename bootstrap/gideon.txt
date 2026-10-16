@@ -1,7 +1,10 @@
 intel-ucode
 gpu-screen-recorder
 lib32-nvidia-utils
+linux-firmware-intel
+linux-firmware-nvidia
+linux-firmware-realtek
 nvidia-open
+nvidia-prime
 nvidia-utils
-tlp
-tlp-pd
+xf86-video-intel

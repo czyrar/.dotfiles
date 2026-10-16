@@ -19,6 +19,7 @@ discord
 dhcpcd
 djview
 efibootmgr
+emacs-wayland
 eza
 fastfetch
 fd
