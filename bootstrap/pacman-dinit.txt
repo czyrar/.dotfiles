@@ -7,6 +7,7 @@ elogind-dinit
 dhcpcd-dinit
 iwd-dinit
 ly-dinit
+mullvad-vpn-dinit
 pipewire-dinit
 pipewire-pulse-dinit
 openssh-dinit

@@ -61,6 +61,7 @@ man-pages
 mandoc
 memtest86+-efi
 mpv
+mullvad-vpn
 mupdf
 neovim
 nicotine+
