@@ -128,6 +128,7 @@ texlive-publishers
 texlive-xetex
 tldr
 tree-sitter-cli
+umu-launcher
 uv
 vim
 vlc
