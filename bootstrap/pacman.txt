@@ -13,6 +13,7 @@ bluetui
 brightnessctl
 btop
 calibre
+chrony
 cronie
 dash
 discord

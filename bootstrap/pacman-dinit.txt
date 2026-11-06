@@ -2,6 +2,7 @@ artix-archlinux-support
 elogind
 dinit
 bluez-dinit
+chrony-dinit
 cronie-dinit
 elogind-dinit
 dhcpcd-dinit
