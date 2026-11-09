@@ -131,6 +131,7 @@ umu-launcher
 uv
 vim
 vlc
+watchexec
 waybar
 wget
 wireguard-tools
