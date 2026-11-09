@@ -1,12 +1,12 @@
-@define-color bg     #1A1B26;
-@define-color fg     #C0CAF5;
-@define-color red    #F7768E;
-@define-color green  #9ECE6A;
-@define-color yellow #E0AF68;
-@define-color blue   #7AA2F7;
-@define-color purple #BB9AF7;
-@define-color cyan   #7DCFFF;
-@define-color gray   #414868;
+@define-color bg     #181818;
+@define-color fg     #FFFFFF;
+@define-color red    #FF7B85;
+@define-color green  #C5E665;
+@define-color yellow #F5C861;
+@define-color blue   #6DCFFF;
+@define-color purple #E0B8FF;
+@define-color cyan   #A8F0D8;
+@define-color gray   #6B7B8E;
 
 * {
   font-family: "IosevkaNerdFont", "noto-fonts";

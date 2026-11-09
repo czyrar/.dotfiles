@@ -1,6 +1,5 @@
 7zip
-android-file-transfer
-aria2
+android-file-transfer aria2
 audacity
 awww
 base
@@ -74,7 +73,6 @@ nwg-look
 obsidian
 obs-studio
 openconnect
-opendoas
 openresolv
 openssh
 pandoc-cli

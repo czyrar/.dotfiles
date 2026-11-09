@@ -28,7 +28,7 @@ alias ll='eza --color=auto -laag'
 alias lt='eza --color=auto -RTlag'
 alias lp='eza -1 --color=never'
 alias conda=micromamba
-alias vpn-uam='gp-saml-gui -S -g vpn.uam.es'
+#alias vpn-uam='gp-saml-gui -S -g vpn.uam.es'
 alias winapps-start='docker compose --file ~/.config/winapps/compose.yaml start'
 alias winapps-stop='docker compose --file ~/.config/winapps/compose.yaml stop'
 

@@ -1,9 +1,7 @@
 ani-cli
 autofirma-bin
 dashbinsh
-doas-sudo-shim
 elecwhat-bin
-gp-saml-gui-git
 juliaup-bin
 losslesscut-bin
 micromamba-bin
